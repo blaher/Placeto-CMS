@@ -35,7 +35,7 @@
     * 	$CONFIG_NAME='default.config';
     * </code>
 	*/
-	$CONFIG_NAME=NULL;
+	$CONFIG_NAME='com.config';
 
    /**
 	* @name $DEPENDENT
