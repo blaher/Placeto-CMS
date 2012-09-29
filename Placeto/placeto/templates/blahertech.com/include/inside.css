@@ -1,0 +1,185 @@
+#wrapper
+{
+	min-height: 100%;
+}
+#logo
+{
+	float: left;
+	margin: 0 0 0 10px;
+}
+#contact
+{
+	height: 63px;
+	color: #6d6d6d;
+}
+#contact h3
+{
+	margin: 0.1em 0;
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+#contact p
+{
+	font-size: 0.8em;
+	padding: 2px 10px;
+}
+#nav
+{
+	clear: none;
+	float: left;
+	width: 579px;
+	padding: 0 0 0 30px;
+}
+#nav li
+{
+	width: 80px;
+	background: url("../images/tabbg_inside.png");
+}
+
+#nav li a
+{
+	width: 80px;
+	padding: 5px 0;
+	text-align: center;
+}
+.image_cont {
+	float: left;
+	width: 489px;
+}
+.main_image {
+    width: 489px;
+    height: 400px;
+    float: left;
+    background: #333;
+    position: relative;
+    overflow: hidden; /*--Overflow hidden allows the description to toggle/tuck away as it slides down--*/
+    color: #fff;
+}
+.main_image h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0;
+    padding: 15px 15px 0 15px;
+	float: left;
+}
+.main_image p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    padding: 0 10px 5px 10px;
+    margin: 0;
+	clear: both;
+}
+.main_image img {
+	display: block;
+	margin: auto;
+}
+.block small { /*--We'll be using this same style on our thumbnail list--*/
+    font-size: 1em;
+    padding: 0 0 0 20px;
+    background: url('../images/icon_calendar.gif') no-repeat 0 center;
+}
+.main_image .block small {float: right; margin: 15px;}
+.main_image .desc{
+    position: absolute;
+    bottom: 0;
+    left: 0; /*--Stick the desc class to the bottom of our main image container--*/
+    width: 100%;
+    display: none; /*--Hide description by default, if js is enabled, we will show this--*/
+}
+.main_image .block{
+    width: 100%;
+    background: #111;
+    border-top: 1px solid #000;
+}
+.main_image a.collapse { /*--This is our hide/show tab--*/
+    background: url('../images/btn_collapse.gif') no-repeat left top;
+    height: 27px;
+    width: 93px;
+    text-indent: -99999px;
+    position: absolute;
+    top: -27px;
+    right: 5px;
+	border: 1px solid #777;
+}
+.main_image .right a, .main_image .right a:link, .main_image .right a:active, .main_image .right a:visited {
+	color: #fff;
+	font-size: 0.7em;
+}
+.main_image .right a:hover {
+	color: #ccc;
+	font-size: 0.7em;
+}
+.main_image a.show {background-position: left bottom;}
+.image_toolbar {
+	background: #f0f0f0 url('../images/nav_a.gif') repeat-x;
+	border: 1px solid #ccc;
+	width: 487px;
+    height: 40px;
+	float: left;
+}
+.image_prev, .image_next{
+	background: #f0f0f0 url('../images/nav_a.gif') repeat-x;
+	border: 1px solid #ccc;
+	width: 298px;
+	height: 26px;
+	float: left;
+}
+.image_thumb {
+    float: left;
+    width: 299px;
+	height: 385px;
+	overflow: hidden;
+    background: #f0f0f0;
+    border-right: 1px solid #fff;
+    border-top: 1px solid #ccc;
+}
+.image_thumb img {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: #fff;
+    float: left;
+	max-height: 39px;
+}
+.image_thumb ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.image_thumb ul li{
+    margin: 0;
+    padding: 12px 10px;
+    background: #f0f0f0 url('../images/nav_a.gif') repeat-x;
+    width: 279px;
+    float: left;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #ccc;
+}
+.image_thumb ul li.hover { /*--Hover State--*/
+    background: #ddd;
+    cursor: pointer;
+}
+.image_thumb ul li.active { /*--Active State--*/
+    background: #fff;
+    cursor: default;
+}
+html .image_thumb ul li h2 {
+    font-size: 1.5em;
+    margin: 5px 0;
+    padding: 0;
+}
+.image_thumb ul li .block {
+    float: left;
+    margin-left: 10px;
+    padding: 0;
+    width: 170px;
+}
+.image_thumb ul li p{display: none;}/*--Hide the description on the list items--*/
+.image_thumb ul li .right {
+	display: none;
+}
+
+@media print
+{
+	#nav,#bread,#search{display:none;}
+}

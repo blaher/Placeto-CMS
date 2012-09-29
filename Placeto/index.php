@@ -32,10 +32,10 @@
 	* @name $CONFIG_NAME
     * @global string $CONFIG_NAME The name of the config file.
     * <code>
-    * 	$config_name='default.config';
+    * 	$CONFIG_NAME='default.config';
     * </code>
 	*/
-	$CONFIG_NAME=NULL;
+	$CONFIG_NAME='com.config';
 
    /**
 	* @name $DEPENDENT

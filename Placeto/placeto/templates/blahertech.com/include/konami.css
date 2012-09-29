@@ -1,0 +1,5 @@
+.konami #wrapper 
+{
+	background: url("../images/konami.png") repeat-y top center fixed;
+	padding: 0 105px;
+}
