@@ -43,6 +43,7 @@
 	*/
 	class P
 	{
+		public $modules; //TODO: Attach module objects to this.
 		private $placeto;
 
 	   /**

@@ -40,6 +40,9 @@
 	require_once('placeto/database.class.php');
 	require_once('placeto/preferences.class.php');
 	require_once('placeto/content.class.php');
+	require_once('placeto/template.class.php');
+	
+	require_once('p.class.php');
 
    /**
 	* The main abstraction class to be used during the programming side
@@ -58,6 +61,8 @@
 		public $mud, $burrow;
 		//TODO: use _server path instead of base
 		public $config, $database, $preferences, $content;
+		public $template, $modules;
+		public $p;
 
 	   /**
 		* The Placeto class constructor.
@@ -95,6 +100,14 @@
 				$this->config->location(),
 				$this->preferences
 			);
+			
+			
+			$this->p=new P($this);
+			
+			$this->template=new placeto_Template
+			(
+				$this->p, $this->config->base(), $this->preferences->template()
+			);
 		}
 
 	   /**
@@ -123,6 +136,22 @@
 		public function content()
 		{
 			return $this->content->get();
+		}
+		
+		/**
+		* Displays template with content, done.
+		*
+		* @version 1.0
+		* @author Benjamin Jay Young <blaher@blahertech.org>
+		*
+		* @access public
+		* @return bool If it worked.
+		*/
+		public function display()
+		{
+			header('Content-Type: '.$this->config->MIMEtype());
+			
+			return $this->template->load($this->content->template());
 		}
 	}
 ?>
