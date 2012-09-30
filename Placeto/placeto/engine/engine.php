@@ -74,6 +74,7 @@
 		unset($DEPENDENT);
 	}
 
+	//TODO: Put this in to placeto->modules
 	//include_once($placeto->config->base().'placeto/engine/modules.php');
 	
 /*//*/if ($_GET['vars']=='true') {var_dump(get_defined_vars());}
@@ -81,7 +82,7 @@
 	if ($placeto->content->found===false)
 	{
 		// used for files in the template
-		require('reattach.php');
+		require('reattach.php'); //TODO: Put this in to placeto->template
 	}
 	else if
 	(
@@ -99,9 +100,7 @@
 	else
 	{
 		// normal pages in the db
-		header('Content-Type: '.$placeto->config->MIMEtype());
-		// stop, template time
-		include_once('templates.php');
+		$placeto->display(); // stop, template time!
 		//placeto_mod_end();
 	}
 
