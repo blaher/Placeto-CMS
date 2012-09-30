@@ -41,13 +41,15 @@
 	class PPDO extends PDO // Stands for Placeto PDO or Prefixed PDO
 	{
 		public $bolStrictPrepend=true;
-		private $aryFind, $aryReplace;
+		private $aryFind, $aryReplace, $strLibrary;
 
 		public function __construct
 		(
 			$strDSN, $strUsername, $strPassword, $aryOptions=NULL, $strPrefix=''
 		)
 		{
+			$this->setLibrary('');
+			
 			$this->strPrefix=$strPrefix;
 			$this->aryFind=array
 			(
@@ -107,9 +109,24 @@
 
 			return true;
 		}
+		
+		public function load($strFile)
+		{
+			return file_get_contents($this->strLibrary.$strFile);
+		}
+		
+		public function setLibrary($strDirectory)
+		{
+			$this->strLibrary=$strDirectory;
+		}
 
 		public function prepare($strQuery)
 		{
+			if (substr(strrev(strtolower($strQuery)), 0, 4)==='lqs.')
+			{
+				$strQuery=$this->load($strQuery);
+			}
+			
 			return parent::prepare($this->prefix($strQuery));
 		}
 

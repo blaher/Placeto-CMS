@@ -47,12 +47,7 @@
 		public function __construct(PPDO &$objConnection)
 		{
 			$this->connection=$objConnection;
-			$pdoPreferences=$this->connection->prepare
-			(
-				'SELECT p.*
-					FROM tblPreferences AS p
-				;'
-			);
+			$pdoPreferences=$this->connection->prepare('preferences.sql');
 			$pdoPreferences->execute();
 
 			while ($aryPreference=$pdoPreferences->fetch())

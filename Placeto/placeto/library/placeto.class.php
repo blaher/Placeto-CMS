@@ -89,6 +89,10 @@
 			);
 			$this->database=new placeto_Database($aryDatabase);
 			unset($aryConfig, $aryDatabase, $strLocation);
+			$this->database->connection->setLibrary
+			(
+				$this->config->base().'placeto/library/resources/sql/'
+			);
 
 			$this->preferences=new placeto_Preferences
 			(
