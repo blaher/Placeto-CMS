@@ -118,20 +118,7 @@
 
 		public function fetch($strLocation)
 		{
-			$pdoNode=$this->connection->prepare
-			(
-				'SELECT n.ID, n.ModuleID, n.PrimaryKey, n.ParentID,
-						n.Address, n.RedirectURL,
-						m.Module, m.Table
-					FROM tblNodes AS n
-					JOIN tblModules AS m
-						ON m.ID=n.ModuleID
-					WHERE n.Address=:Address
-						AND m.Enabled=\'true\'
-						AND m.Type=\'Node\'
-					LIMIT 1
-				;'
-			);
+			$pdoNode=$this->connection->prepare('node.sql');
 			$pdoNode->execute(array(':Address'=>$strLocation));
 			$aryNode=$pdoNode->fetch(PDO::FETCH_ASSOC);
 			$pdoNode->closeCursor();
@@ -164,17 +151,7 @@
 			}
 			unset($aryNode);
 
-			$pdoKeywords=$this->connection->prepare
-			(
-				'SELECT k.Keyword
-					FROM tblNodesKeywords AS nk
-					JOIN tblKeywords AS k
-						ON k.ID=nk.KeywordID
-					WHERE nk.NodeID=:NodeID
-					GROUP BY k.Keyword
-					ORDER BY nk.Position, nk.KeywordID
-				;'
-			);
+			$pdoKeywords=$this->connection->prepare('keywords.sql');
 			$pdoKeywords->execute(array(':NodeID'=>$aryContent['ID']));
 			$aryKeywords=$pdoKeywords->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($aryKeywords as $aryKeyword)
